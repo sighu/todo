@@ -38,9 +38,13 @@ function updateTodoList(){
   todoMain.innerHTML = htmlStrings
 }
 
+function clearInputForm(){
+  inputForm["input-text"].value = ""
+}
+
 function addTodo(todoObj){
   todoObj.id = "todo-" + (todoList.length + 1)
-  todoObj.createdAt = new Date().toLoceleString()
+  todoObj.createdAt = new Date().toLocaleString()
   todoObj.priority = 3
   todoObj.isDone = false
   todoObj.isEdit = false
@@ -65,7 +69,7 @@ function registerDOM(){
 }
 
 function bindEvents(){
-  inputForm.addEventListener("submit", () => handleSubmit())
+  inputForm.addEventListener("submit", () => handleSubmit(event))
 }
 
 function initialize(){
